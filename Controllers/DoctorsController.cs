@@ -26,7 +26,7 @@ public class DoctorsController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Doctor>> Create(Doctor dto)
     {
-        if (string.IsNullOrWhiteSpace(dto.Name)) return BadRequest("Name required");
+        if (!ModelState.IsValid) return BadRequest(ModelState);
         _ctx.Doctors.Add(dto);
         await _ctx.SaveChangesAsync();
         return CreatedAtAction(nameof(GetOne), new { id = dto.Id }, dto);
@@ -35,7 +35,7 @@ public class DoctorsController : ControllerBase
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, Doctor dto)
     {
-        if (id != dto.Id) return BadRequest("Id mismatch");
+        if (!ModelState.IsValid) return BadRequest(ModelState);
         if (!await _ctx.Doctors.AnyAsync(d => d.Id == id)) return NotFound();
         _ctx.Entry(dto).State = EntityState.Modified;
         await _ctx.SaveChangesAsync();
