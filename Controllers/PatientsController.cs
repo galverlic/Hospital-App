@@ -26,4 +26,28 @@ public class PatientsController : ControllerBase
         await _ctx.SaveChangesAsync();
         return Ok(p);
     }
+
+
+    // DELETE PATIENT BY THEIR ID
+
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var patient = await _ctx.Patients.FindAsync(id);
+        if (patient == null) return NotFound();
+        _ctx.Remove(patient);
+        await _ctx.SaveChangesAsync();
+        return NoContent();
+    }
+
+    //UPDATE PATIENT'S NAME
+    [HttpPut("{id:int}")]
+    public async Task<IActionResult> Update(int id, Patient p)
+    {
+        if (id != p.Id) return BadRequest("ID mismatch");
+        if (!await _ctx.Patients.AnyAsync(x => x.Id == id)) return NotFound();
+        _ctx.Entry(p).State = EntityState.Modified;
+        await _ctx.SaveChangesAsync();
+        return NoContent();
+    }
 }

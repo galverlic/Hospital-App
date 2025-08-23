@@ -158,3 +158,4 @@
 /Users/galverlic/Documents/Development/Day1/hospital/HospitalApi/obj/Debug/net9.0/ref/HospitalApi.dll
 /Users/galverlic/Documents/Development/Day1/hospital/HospitalApi/bin/Debug/net9.0/React/package-lock.json
 /Users/galverlic/Documents/Development/Day1/hospital/HospitalApi/bin/Debug/net9.0/React/package.json
+/Users/galverlic/Documents/Development/Day1/hospital/HospitalApi/obj/Debug/net9.0/HospitalApi.sourcelink.json
