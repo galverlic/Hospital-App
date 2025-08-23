@@ -40,3 +40,35 @@
 .read-the-docs {
   color: #888;
 }
+
+.btn {
+  background:green;
+  color:white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.btn-success {
+  background: #4caf50;
+  color: white;
+}
+
+.btn-danger {
+  background: #e74c3c;
+  color: white;
+}
+
+.btn-edit {
+  background: #50449a;
+  color: white;
+  
+}
+
+.btn-cancel {
+  background: #777;
+  color: white;
+}
